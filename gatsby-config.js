@@ -10,18 +10,21 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: `doj4qde8byrj`,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
+    },
     {
       resolve: `gatsby-source-filesystem`,
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
+        },
+    }, 
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
